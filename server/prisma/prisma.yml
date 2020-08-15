@@ -1,0 +1,16 @@
+# Specifies the HTTP endpoint of your Prisma API.
+#endpoint: ''
+endpoint: https://eu1.prisma.sh/mahmoud-amine-821049/haker-urql/test-urql
+
+# Defines your models, each model is mapped to the database as a table.
+datamodel: datamodel.graphql
+
+# Specifies the language and directory for the generated Prisma client.
+generate:
+  - generator: javascript-client
+    output: ../src/generated/prisma-client
+
+# Ensures Prisma client is re-generated after a datamodel change.
+hooks:
+  post-deploy:
+    - prisma generate
